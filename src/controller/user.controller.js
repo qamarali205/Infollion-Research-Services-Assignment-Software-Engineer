@@ -17,20 +17,7 @@ exports.loginUser = async (req, res) => {
         message: "Email and password are required",
       });
     }
-    // const user = await User.findOne({ email });
-    // if (!user) {
-    //   return res.status(400).json({
-    //     status: 400,
-    //     message: "Invalid email or password",
-    //   });
-    // }
-    // const isMatch = await bcrypt.compare(password, user.password);
-    // if (!isMatch) {
-    //   return res.status(400).json({
-    //     status: 400,
-    //     message: "Invalid email or password",
-    //   });
-    // }
+    
 
     const token = generateToken(req.body);
 

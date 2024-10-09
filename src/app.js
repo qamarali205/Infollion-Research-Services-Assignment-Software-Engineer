@@ -5,11 +5,14 @@ const rateLimit = require('express-rate-limit');
 const morgan = require('morgan');
 const routes = require('./routes/index');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
 const app = express();
-
+app.use(express.json());
+// Enable CORS for all routes
+app.use(cors());
 
 const logStream = fs.createWriteStream(path.join(__dirname, 'requests.log'), { flags: 'a' });
 
@@ -32,7 +35,7 @@ app.use(limiter);
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.json()); 
+ 
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{

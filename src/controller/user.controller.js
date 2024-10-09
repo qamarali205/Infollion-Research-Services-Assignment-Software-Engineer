@@ -1,4 +1,4 @@
-const User = require("../models/user.model");
+
 const { generateToken } = require("../utils/jwt");
 
 const NodeCache = require('node-cache');
